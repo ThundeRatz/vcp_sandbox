@@ -5,6 +5,7 @@
  */
 
 #include "mcu.h"
+#include "led.h"
 
 /*****************************************
  * Private Constant Definitions
