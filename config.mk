@@ -5,7 +5,7 @@
 
 # Cube file name without .ioc extension
 PROJECT_NAME = vcp_sandbox
-VERSION := 1
+VERSION := v1
 
 TARGET_BOARD := target_$(PROJECT_NAME)_$(VERSION)
 
