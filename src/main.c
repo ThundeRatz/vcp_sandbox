@@ -4,8 +4,10 @@
  * @brief Main function
  */
 
-#include "mcu.h"
-#include "led.h"
+#include "mcu_adapter.h"
+#include "leds_adapter.h"
+
+#include "usb_device.h"
 
 /*****************************************
  * Private Constant Definitions
@@ -18,10 +20,12 @@
  *****************************************/
 
 int main(void) {
-    mcu_init();
+    mcu_adapter_init();
+
+    MX_USB_DEVICE_Init();
 
     for (;;) {
-        led_toggle();
-        mcu_sleep(LED_TOGGLE_DELAY_MS);
+        leds_adapter_control(LED_RED, LED_ADAPTER_ACTION_TOGGLE);
+        mcu_adapter_sleep_ms(LED_TOGGLE_DELAY_MS);
     }
 }

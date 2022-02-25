@@ -4,19 +4,19 @@
 # 06/2019
 
 # Cube file name without .ioc extension
-PROJECT_NAME = vcp_sandbox
+PROJECT_NAME = discovery
 VERSION := v1
 
 TARGET_BOARD := target_$(PROJECT_NAME)_$(VERSION)
 
-DEVICE_FAMILY  := STM32F1xx
-DEVICE_TYPE    := STM32F103xx
-DEVICE_DEF     := STM32F103xB
-DEVICE         := STM32F103C8
-
-# Linker script file without .ld extension
-# Find it on cube folder after code generation
-DEVICE_LD_FILE := STM32F103C8Tx_FLASH
+# Device configs
+ifeq ($(PROJECT_NAME), bluepill)
+include bluepill_config.mk
+else ifeq ($(PROJECT_NAME), discovery)
+include discovery_config.mk
+else
+$(error Unknown Project)
+endif
 
 # Lib dir
 LIB_DIR  := lib
